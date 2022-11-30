@@ -9,8 +9,15 @@
 ######################################################################
 
 #!/bin/bash
+
+read -p "Enter programming language: " dir 
+
+if [ $dir == "python" ]; then
+    mkdir $dir
+fi
+
 for i in {1..31}
 do
-   cp -rf template day$i
+   cp -rf template/$dir $dir/day$i
 done
 
