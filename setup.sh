@@ -14,8 +14,10 @@ read -p "Enter programming language: " dir
 
 if [ $dir == "python" ]; then
     mkdir $dir
+    cp template/Python.gitignore $dir/.gitignore
 elif [ $dir == "rust" ]; then
     mkdir $dir
+    cp template/Rust.gitignore $dir/.gitignore
 fi
 
 for i in {1..31}
