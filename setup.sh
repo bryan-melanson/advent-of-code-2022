@@ -14,10 +14,16 @@ read -p "Enter programming language: " dir
 
 if [ $dir == "python" ]; then
     mkdir $dir
+elif [ $dir == "rust" ]; then
+    mkdir $dir
 fi
 
 for i in {1..31}
 do
-   cp -rf template/$dir $dir/day$i
+    if [ $i -le 9 ]; then
+        cp -rf template/$dir $dir/0$i
+    else
+        cp -rf template/$dir $dir/$i
+    fi
 done
 
