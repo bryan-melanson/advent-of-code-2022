@@ -1,7 +1,10 @@
 use std::fs;
 
-fn solution(data:String) -> u32 {
-    0    
+fn solution(data: String) -> u32 {
+    for line in data.lines() {
+        println!("{}", line);
+    }
+    0
 }
 
 pub fn print_solution() {
