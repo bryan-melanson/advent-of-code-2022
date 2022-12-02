@@ -20,7 +20,7 @@ elif [ $dir == "rust" ]; then
     cp template/Rust.gitignore $dir/.gitignore
 fi
 
-for i in {1..31}
+for i in {1..25}
 do
     if [ $i -le 9 ]; then
         cp -rf template/$dir $dir/0$i
