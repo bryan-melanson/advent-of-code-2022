@@ -1,21 +1,15 @@
 use std::fs;
 
-fn solution(data: String) -> u32 {
-    for line in data.lines() {
-        println!("{}", line);
-    }
+fn solution(path: String) -> u32 {
+    let data = std::fs::read_to_string(path);
     0
 }
 
-pub fn print_solution() {
+pub fn print_solution(test_val: u32) {
     let input = String::from("./input");
     let test = String::from("./test");
 
-    let data = fs::read_to_string(test).expect("Should have been able to read the file");
-
-    let test_val = 0;
-
-    if solution(data) != test_val {
+    if solution(test) != test_val {
         println!("Test failed");
     } else {
         println!("{}", solution(input));
