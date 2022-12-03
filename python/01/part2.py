@@ -1,19 +1,7 @@
 def part2(x):
-    max = [0, 0, 0]
     with open(x, "r") as f:
-        data = f.read().splitlines()
-        val = 0
-        for line in data:
-            if line == '':
-                val = 0
-                max = sorted(max)
-            else:
-                val += int(line)
-            for i in range(3):
-                if val > max[i]:
-                    max[i] = val
-                    break
-    return sum(max)
+        return sum(sorted([sum([int(calorie) for calorie in calories.split('\n')])
+                           for calories in f.read().split("\n\n")])[-3:])
 
 
 test_val = 45000
