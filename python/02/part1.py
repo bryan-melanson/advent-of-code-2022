@@ -11,11 +11,8 @@ rules = {'A X': 1 + 3,
 
 
 def part1(x):
-    val = 0
     with open(x, "r") as f:
         return sum([rules[x] for x in f.read().splitlines()])
-
-    return val
 
 
 test_val = 15
