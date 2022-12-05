@@ -2,9 +2,9 @@ import time
 
 
 def overlap(vals):
-    return ((int(vals[0][0]) <= int(vals[1][1])
-             and int(vals[0][1]) >= int(vals[1][0])) or (int(vals[1][0]) <= int(vals[0][1])
-                                                         and int(vals[1][1]) >= int(vals[0][0])))
+    vals = [list(map(int, i)) for i in vals]
+    return ((vals[0][0] <= vals[1][1]
+             and vals[0][1] >= vals[1][0]) or (vals[1][0] <= vals[0][1] and vals[1][1] >= vals[0][0]))
 
 
 def part2(x):
@@ -12,6 +12,7 @@ def part2(x):
         data = [[vals.split('-') for vals in line.split(',')]
                 for line in f.read().splitlines()]
         return len(list(filter(overlap, data)))
+# --- 0.005255222320556641 seconds ---
 
 
 test_val = 4

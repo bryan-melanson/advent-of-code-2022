@@ -11,6 +11,7 @@ def part1(x):
         data = [[vals.split('-') for vals in line.split(',')]
                 for line in f.read().splitlines()]
         return len(list(filter(contained, data)))
+# --- 0.005724906921386719 seconds ---
 
 
 test_val = 2
