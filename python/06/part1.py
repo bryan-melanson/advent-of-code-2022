@@ -3,12 +3,9 @@ import re
 
 
 def get_idx(x):
-    matches = re.finditer(
+    match = re.search(
         r'(.)(?!\1)(.)(?!\1|\2)(.)(?!\1|\2|\3)(.)(.){3}', x)
-    for match in matches:
-        start = match.span()[0]
-        if start >= 3:
-            return start + 4
+    return match.span()[0] + 4
 
 
 def part1(x):
@@ -16,7 +13,7 @@ def part1(x):
         data = f.read().splitlines()
         return (get_idx(data[0]))
 
-# --- 0.00022721290588378906 seconds ---
+# --- 0.003361940383911133 seconds ---
 
 
 test_val = 7
