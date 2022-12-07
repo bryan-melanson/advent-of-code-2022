@@ -1,7 +1,7 @@
 import time
 
 
-def part1(x):
+def part2(x):
     with open(x, "r") as f:
         data = f.read().splitlines()
         sizes = {}
@@ -22,16 +22,22 @@ def part1(x):
                     if dir not in sizes:
                         sizes[dir] = 0
                     sizes[dir] += int(val)
-        return (sum(value
-                    for value in sizes.values() if value <= 100000))
+
+        total = 70000000
+        used = sizes['/']
+        space = total - used
+        update = 30000000
+
+        return (min(size for size in sizes.values() if (space + size) >= update))
 
 
 # --- 0.00467681884765625 seconds ---
 
-test_val = 95437
-if part1("test") == test_val:
+test_val = 24933642
+
+if part2("test") == test_val:
     start_time = time.time()
-    print('Solution is {}'.format(part1("input")))
+    print('Solution is {}'.format(part2("input")))
     print("--- %s seconds ---" % (time.time() - start_time))
 else:
     print("Test failed")
