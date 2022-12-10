@@ -25,9 +25,8 @@ def part1(x):
 
 # --- 0.059660911560058594 seconds ---
 
-
 test_val = 13140
-if part1("input") == test_val:
+if part1("test") == test_val:
     start_time = time.time()
     print('Solution is {}'.format(part1("input")))
     print("--- %s seconds ---" % (time.time() - start_time))
