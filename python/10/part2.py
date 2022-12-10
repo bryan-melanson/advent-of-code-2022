@@ -27,12 +27,11 @@ def part2(x):
                 pixel(cycle, r)
                 cycle += 1
                 r += val
-        return
+        print('\n')
 
 
 # --- 0.0033750534057617188 seconds - --
 
 start_time = time.time()
 part2("input")
-print('\n')
 print("--- %s seconds ---" % (time.time() - start_time))
