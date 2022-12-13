@@ -55,7 +55,7 @@ def part2(x):
                 visited.add(tuple(knots[9]))
         return (len(visited))
 
-# --- 0.059660911560058594 seconds ---
+# --- 0.4715099334716797 seconds ---
 
 
 test_val = 36

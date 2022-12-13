@@ -52,11 +52,10 @@ def part2(x):
                         else:
                             monkeys[monkey['false']]['items'].append(item)
         count = (sorted(count, reverse=false))
-        print(count)
         return count[0]*count[1]
 
 
-# --- 0.059660911560058594 seconds ---
+# --- 2.9785759449005127 seconds ---
 
 test_val = 2713310158
 if part2("test") == test_val:
