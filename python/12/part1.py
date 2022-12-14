@@ -2,8 +2,8 @@ import time
 from collections import deque
 
 
-def part1(col):
-    with open(col, "r") as f:
+def part1(x):
+    with open(x, "r") as f:
         data = [list(line) for line in f.read().splitlines()]
         for row in range(len(data)):
             for col in range(len(data[0])):
@@ -16,7 +16,7 @@ def part1(col):
         queue = deque([(start[0], start[1], 0)])
         visited = set()
 
-        while queue > 0:
+        while queue:
             row, col, val = queue.popleft()
             if (row, col) == end:
                 return val
