@@ -1,15 +1,5 @@
 #!/usr/bin/env sh
 
-######################################################################
-# @author      : Bryan Melanson (bryan@bryanmelanson.com)
-# @file        : setup
-# @created     : Wednesday Nov 30, 2022 12:13:52 NST
-#
-# @description : 
-######################################################################
-
-#!/bin/bash
-
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
