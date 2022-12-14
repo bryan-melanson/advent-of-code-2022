@@ -40,7 +40,6 @@ def part2(col):
         return(min(vals))
 # --- 2.41329789162 seconds ---
 
-part2("input")
 test_val = 29
 if part2("test") == test_val:
     start_time = time.time()
