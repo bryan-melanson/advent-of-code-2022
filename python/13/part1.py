@@ -1,13 +1,52 @@
 import time
-from collections import deque
+import ast
+
+VALID = 1
+INVALID = -1
+NA = 0
+
+
+def check(a, b):
+    for idx in range(max(len(a), len(b))):
+        if idx >= len(a):
+            return VALID
+        if idx >= len(b):
+            return NA
+        l, r = a[idx], b[idx]
+        valid = INVALID
+        if type(l) == int and type(r) == int:
+            if l < r:
+                valid = VALID
+            elif l > r:
+                valid = NA
+            else:
+                valid = INVALID
+                continue
+        elif type(l) == list and type(r) == list:
+            valid = check(l, r)
+        elif type(l) == list and type(r) == int:
+            valid = check(l, [r])
+        elif type(l) == int and type(r) == list:
+            valid = check([l], r)
+        if valid != INVALID:
+            return valid
+    return INVALID
 
 
 def part1(x):
     with open(x, "r") as f:
-        blocks = f.read().split('\n\n')
-        print(data)
+        pairs = [pair.splitlines() for pair in f.read().split('\n\n')]
+        count, idx = 0, 1
+        for pair in pairs:
+            a = ast.literal_eval(pair[0])
+            b = ast.literal_eval(pair[1])
+            valid = check(a, b)
+            if (valid):
+                count += idx
+            idx += 1
+    return count
 
-# --- 0.055726051330566406 seconds ---
+# --- 0.04009699821472168 seconds ---
 
 
 test_val = 13
