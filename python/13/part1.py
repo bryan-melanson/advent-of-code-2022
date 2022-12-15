@@ -12,7 +12,6 @@ def check(a, b):
         if idx >= len(b):
             return INVALID
         l, r = a[idx], b[idx]
-        valid = NA
         if type(l) == int and type(r) == int:
             if l < r:
                 valid = VALID
