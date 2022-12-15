@@ -7,20 +7,20 @@ NA = 0
 
 
 def check(a, b):
+    valid = NA
     for idx in range(max(len(a), len(b))):
         if idx >= len(a):
             return VALID
         if idx >= len(b):
-            return NA
+            return INVALID
         l, r = a[idx], b[idx]
-        valid = INVALID
+        valid = NA
         if type(l) == int and type(r) == int:
             if l < r:
                 valid = VALID
             elif l > r:
-                valid = NA
-            else:
                 valid = INVALID
+            else:
                 continue
         elif type(l) == list and type(r) == list:
             valid = check(l, r)
@@ -28,9 +28,9 @@ def check(a, b):
             valid = check(l, [r])
         elif type(l) == int and type(r) == list:
             valid = check([l], r)
-        if valid != INVALID:
+        if valid != NA:
             return valid
-    return INVALID
+    return valid
 
 
 def part1(x):
@@ -41,7 +41,7 @@ def part1(x):
             a = ast.literal_eval(pair[0])
             b = ast.literal_eval(pair[1])
             valid = check(a, b)
-            if (valid):
+            if (valid == VALID):
                 count += idx
             idx += 1
     return count
