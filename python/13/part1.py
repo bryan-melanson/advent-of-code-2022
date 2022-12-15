@@ -1,9 +1,7 @@
 import time
-import ast
+from ast import literal_eval
 
-VALID = 1
-INVALID = -1
-NA = 0
+VALID, INVALID, NA = 1, -1, 0
 
 
 def check(a, b):
@@ -38,8 +36,8 @@ def part1(x):
         pairs = [pair.splitlines() for pair in f.read().split('\n\n')]
         count, idx = 0, 1
         for pair in pairs:
-            a = ast.literal_eval(pair[0])
-            b = ast.literal_eval(pair[1])
+            a = literal_eval(pair[0])
+            b = literal_eval(pair[1])
             valid = check(a, b)
             if (valid == VALID):
                 count += idx
