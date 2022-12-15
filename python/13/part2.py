@@ -1,5 +1,5 @@
 import time
-import ast
+from ast import literal_eval
 
 
 def check(a, b):
@@ -34,7 +34,7 @@ def check(a, b):
 
 def part2(x):
     with open(x, "r") as f:
-        pairs = [ast.literal_eval(pair)
+        pairs = [literal_eval(pair)
                  for pair in f.read().splitlines() if pair != '']
         x, y = 1, 2
         for i in range(len(pairs)):
