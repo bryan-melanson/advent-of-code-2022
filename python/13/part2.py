@@ -75,7 +75,7 @@ def part2(x):
                 y += 1
         return x*y
 
-# --- 0.49914121627807617 seconds - --
+# --- 0.0273067951202 seconds ---
 
 
 test_val = 140
