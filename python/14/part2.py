@@ -31,8 +31,10 @@ def part2(x):
         while not done:
             sand_x, sand_y = 500, 0
             blocked = False
-            while not blocked and not done:
-                if (sand_x, sand_y+1) not in rocks:
+            while not blocked:
+                if (sand_y+1 >= floor):
+                    blocked = True
+                elif (sand_x, sand_y+1) not in rocks:
                     sand_y += 1
                 elif (sand_x-1, sand_y+1) not in rocks:
                     sand_x -= 1
@@ -41,18 +43,14 @@ def part2(x):
                     sand_x += 1
                     sand_y += 1
                 else:
-                    count += 1
-                    rocks.add((sand_x, sand_y))
                     blocked = True
-                if (sand_y+1 >= floor):
-                    count += 1
-                    rocks.add((sand_x, sand_y))
-                    blocked = True;
-                elif ((sand_x, sand_y) == (500,0)):
-                    done = True
+            count += 1
+            rocks.add((sand_x, sand_y))
+            if ((sand_x, sand_y) == (500,0)):
+                done = True
         return count
 
-# --- 1.16048502922 seconds ---
+# --- 0.820105791092 seconds ---
 
 test_val = 93
 if part2("test") == test_val:
