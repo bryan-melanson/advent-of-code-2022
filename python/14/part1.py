@@ -30,7 +30,10 @@ def part1(x):
         while not done:
             sand_x, sand_y = 500, 0
             blocked = False
-            while not blocked and not done:
+            while not blocked:
+                if (sand_x < min(rocks, key=lambda x: x[0])[0] or sand_x > max(rocks, key=lambda x: x[0])[0]) or sand_y > max(rocks, key=lambda x: x[1])[1]:
+                    done = True
+                    break
                 if (sand_x, sand_y+1) not in rocks:
                     sand_y += 1
                 elif (sand_x-1, sand_y+1) not in rocks:
@@ -40,11 +43,9 @@ def part1(x):
                     sand_x += 1
                     sand_y += 1
                 else:
+                    blocked = True
                     count += 1
                     rocks.add((sand_x, sand_y))
-                    blocked = True
-                if (sand_x < min(rocks, key=lambda x: x[0])[0] or sand_x > max(rocks, key=lambda x: x[0])[0]) or sand_y > max(rocks, key=lambda x: x[1])[1]:
-                    done = True
         return count
 
 # --- 30.7987089157 seconds ---
