@@ -1,9 +1,8 @@
 fn solution(data: String) -> u32 {
-    let val = data.split("\n\n")
+    data.split("\n\n")
         .map(|e| e.lines().map(|c| c.parse::<u32>().unwrap()).sum::<u32>())
         .max()
-        .unwrap();
-    val
+        .unwrap()
 }
 
 pub fn print_solution(test_val: u32) {

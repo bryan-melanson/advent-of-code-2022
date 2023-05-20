@@ -1,9 +1,16 @@
+use itertools::Itertools;
+
 fn solution(data: String) -> u32 {
-    let val = data.split("\n\n")
-        .map(|e| e.lines().map(|c| c.parse::<u32>().unwrap()).sum::<u32>())
-        .max()
-        .unwrap();
-    val
+    data.split("\n\n")
+        .map(|elf| {
+            elf.lines()
+                .filter_map(|s| s.parse::<u32>().ok())
+                .sum::<u32>()
+        })
+        .sorted()
+        .rev()
+        .take(3)
+        .sum::<u32>()
 }
 
 pub fn print_solution(test_val: u32) {
