@@ -1,5 +1,4 @@
-fn solution(path: String) -> u32 {
-    let _data = std::fs::read_to_string(path);
+fn solution(_data: String) -> u32 {
     0
 }
 
